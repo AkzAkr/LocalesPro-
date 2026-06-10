@@ -12,7 +12,9 @@ function localespro_load_env(): void
 
     $candidates = [
         dirname(__DIR__) . DIRECTORY_SEPARATOR . ".env",
+        dirname(__DIR__) . DIRECTORY_SEPARATOR . "env.ini",
         dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . ".env",
+        dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "env.ini",
     ];
 
     foreach ($candidates as $path) {

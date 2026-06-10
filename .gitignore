@@ -1,4 +1,6 @@
 backend/.env
+backend/env.ini
+env.ini
 backend/config/payment.local.php
 backend/logs/*.log
 !backend/logs/.gitkeep
