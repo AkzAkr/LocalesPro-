@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/backend/:path*",
+      "destination": "https://ann.infinityfreeapp.com/backend/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
