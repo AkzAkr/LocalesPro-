@@ -87,6 +87,10 @@ function getAuthorizationHeader(): ?string
         return $_SERVER["REDIRECT_HTTP_AUTHORIZATION"];
     }
 
+    if (!empty($_SERVER["HTTP_X_AUTHORIZATION"])) {
+        return $_SERVER["HTTP_X_AUTHORIZATION"];
+    }
+
     return null;
 }
 
