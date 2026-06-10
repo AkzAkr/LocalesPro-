@@ -5,10 +5,14 @@ localespro_load_env();
 
 $allowedOrigins = localespro_get_allowed_origins();
 $requestOrigin = trim((string) ($_SERVER["HTTP_ORIGIN"] ?? ""));
+$isVercelOrigin = (bool) preg_match(
+    "/^https:\/\/[a-z0-9-]+(\.[a-z0-9-]+)*\.vercel\.app$/i",
+    $requestOrigin
+);
 
 if (in_array("*", $allowedOrigins, true)) {
     header("Access-Control-Allow-Origin: *");
-} elseif ($requestOrigin !== "" && in_array($requestOrigin, $allowedOrigins, true)) {
+} elseif ($requestOrigin !== "" && (in_array($requestOrigin, $allowedOrigins, true) || $isVercelOrigin)) {
     header("Access-Control-Allow-Origin: " . $requestOrigin);
     header("Vary: Origin");
 }
